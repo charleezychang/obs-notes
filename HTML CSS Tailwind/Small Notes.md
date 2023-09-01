@@ -1,15 +1,13 @@
------
+---------------
 ### HTML Semantics
 Do not overuse `<div>`. Other elements include:
-- section - group elements that go together
+- section - group elements that go together visually through the page
 - header
 - footer
 - nav
 - ul
 - li
 - article - widget, can be stand-alone
-
------
 ### CSS Reset
 ```css
 * {
@@ -19,5 +17,3 @@ Do not overuse `<div>`. Other elements include:
 }
 ```
 
-----
-### Maker footer sticky
