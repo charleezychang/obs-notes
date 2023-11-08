@@ -123,6 +123,7 @@ const handleShowPrice = () => {
 ```tsx
 // primitive types are passed by value, so when react tries to determine if the 
 // new state is changed, same value primitives will not rerender the component
+// additionally, primitives' types are inferred by TS while non-primitives are not
 const [count, setCount] = useState(0)
 
 const handleClick = () => {
@@ -153,4 +154,52 @@ type ProfileType = {
 }
 
 const [profile, setProfile] = useState<ProfileType | null>(null)
+```
+### Custom hook with Context API (Template)
+```tsx
+import { createContext, useContext, useState } from "react";
+
+type ThemeContextProviderProps = {
+	children: React.ReactNode;
+}
+
+type theme = 'dark' | 'light'
+
+type ThemeContext = {
+	theme: theme;
+	// Can hover setTheme to check type
+	setTheme: React.Dispatch<React.SetStateAction<theme>>;
+}
+// if the context is used outside the provider, it will return null
+const ThemeContext = createContext<ThemeContext | null>(null);
+
+export default function ThemeContextProvider({
+	children
+}: ThemeContextProviderProps) {
+	const [theme, setTheme] = useState<Theme>("light");
+
+	return (
+		<ThemeContext.Provider
+			value={{
+				theme,
+				setTheme
+			}}
+		>
+			{children}
+		</ThemeContext.Provider> 	
+	)
+}
+// Custom hook for Context API's solves 2 problems
+// 1. The need to import the context in each component that uses it
+// 2. The need to check if its null in each component that uses it
+export function useThemeContext() {
+	const context = useContext(ThemeContext);
+	if (!context) {
+		throw new Error("useThemeContext must be used within a ThemeContextProvider")
+	}
+	return context
+}
+
+// importing the custom hook
+const { theme, setTheme } = useThemeContext()
 ```
