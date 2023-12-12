@@ -1,6 +1,6 @@
 [This Is One Of My Favorite TypeScript Features - YouTube](https://www.youtube.com/watch?v=xsfdypZCLQ8&ab_channel=WebDevSimplified)
 
-Useful to avoid null checks
+Useful to intentionally avoid null checks
 ```tsx
 // Instead of
 type LocationState = {
@@ -41,4 +41,13 @@ type ErrorLocationState = {
 }
 
 type LoadingState = LoadingLocationState | SuccessLocationState | ErrorLocationState
+```
+
+
+Another example [How Did I Not Know This TypeScript Trick Earlier??! - YouTube](https://www.youtube.com/watch?v=9i38FPugxB8&ab_channel=Joshtriedcoding)
+```tsx
+type Person = { name: string } 
+type Male = Person & { gender: 'male' salary: number }
+type Female = Person & { gender: 'male' weight: number } 
+type Props = Male | Female
 ```

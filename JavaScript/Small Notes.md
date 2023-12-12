@@ -24,3 +24,38 @@ var value = null;
 alert(String(value)); // null
 ```
 
+### || vs ?? 
+**Logical OR operator uses the right side value if the left side one is falsy**, undefined or null does not mean false
+```tsx
+console.log(true || "shameel"); // true
+console.log(false || "shameel"); // "shameel"
+
+console.log(0 || "shameel"); // "shameel"
+console.log(1 || "shameel"); // 1
+
+console.log("uddin" || "shameel"); // "uddin"
+console.log("" || "shameel"); // "shameel"
+
+console.log(undefined || "shameel"); // "shameel"
+console.log(null || "shameel"); // "shameel"
+```
+
+```tsx
+console.log(true ?? "shameel"); // true
+console.log(false ?? "shameel"); // false
+
+console.log(0 ?? "shameel"); // 0
+console.log(1 ?? "shameel"); // 1
+
+console.log("uddin" ?? "shameel"); // "uddin"
+console.log("" ?? "shameel"); // ""
+
+console.log(undefined ?? "shameel"); // "shameel"
+console.log(null ?? "shameel"); // "shameel"
+```
+
+
+### event.target vs event.currentTarget
+[Do you know the difference between target vs. currentTarget? (youtube.com)](https://www.youtube.com/watch?v=F2pbD_Mr91Y&ab_channel=CodinginPublic)
+target = what is specifically clicked on
+currentTarget = where the eventListener is attached (commonly a container where there are more child elements)

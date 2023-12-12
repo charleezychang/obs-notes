@@ -8,43 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "02e97d04ebbfeb3d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NextJS/Next Auth.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "badf4356eb034465",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "TypeScript/Discriminating Union.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
             "id": "0f9bf4b997c4bb53",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TypeScript/Type vs. Interface.md",
+                "file": "React/Small Notes.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -110,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "TypeScript/Discriminating Union.md",
+                "file": "React/Small Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "TypeScript/Discriminating Union.md",
+                "file": "React/Small Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TypeScript/Discriminating Union.md"
+                "file": "React/Small Notes.md"
               }
             }
           },
@@ -181,28 +156,33 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "badf4356eb034465",
+  "active": "0f9bf4b997c4bb53",
   "lastOpenFiles": [
-    "Other/DSA.md",
-    "TypeScript/Discriminating Union.md",
+    "JavaScript/Small Notes.md",
+    "Resources.md",
+    "JavaScript/Primitive Types.md",
+    "React/Small Notes.md",
+    "NextJS/Small Notes.md",
+    "React/useReducer.md",
+    "React/React Hook Form + Zod.md",
+    "NextJS/Next Auth.md",
     "Other/VSCode Shortcuts.md",
     "Other/Representing States Other Than Booleans.md",
-    "Resources.md",
-    "DSA",
-    "NextJS/Small Notes.md",
-    "NextJS/Next Auth.md",
+    "Other/OOP.md",
+    "Other/DSA.md",
+    "HTML CSS Tailwind/Small Notes.md",
+    "Pasted image 20231120152643.png",
     "Guide.md",
+    "Steve Schoger, Adam Wathan - Refactoring UI (2018).pdf",
     "TypeScript/Type vs. Interface.md",
+    "Pasted image 20231113020434.png.md",
+    "Pasted image 20231113020434.png",
+    "TypeScript/Discriminating Union.md",
+    "DSA",
     "TypeScript/Generics.md",
     "TypeScript/Any vs. Unknown.md",
-    "React/Small Notes.md",
-    "React/React Hook Form + Zod.md",
-    "HTML CSS Tailwind/Small Notes.md",
     "Untitled.md",
     "NextJS",
-    "React/useReducer.md",
-    "JavaScript/Primitive Types.md",
-    "JavaScript/Small Notes.md",
     "Other",
     "Other Notes.md"
   ]

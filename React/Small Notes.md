@@ -1,4 +1,7 @@
-----------
+c----------
+```
+npm create vite@<version> .
+```
 ### Logical `&&` Operator for Conditional Rendering
 Be aware when using `&&` operator when the expression is `0` or `NaN`
 ```tsx
@@ -202,4 +205,63 @@ export function useThemeContext() {
 
 // importing the custom hook
 const { theme, setTheme } = useThemeContext()
+```
+
+
+
+### Passing only the setState
+You can reference the state by using the parameter of setState
+```tsx
+function ParentComponent() {
+	const [count, setCount] = useState(0)
+	<ChildComponent setCount={setCount} />
+}
+
+function ChildComponent(props) {
+	props.setCount(prev => prev + 1)
+}
+```
+
+### Attach key listener to website
+```tsx
+useEffect(() => {
+	const handleKeydown = (event) => {
+				if (event.code === "Space") {
+			setCount(count + 1)
+		}
+	}
+
+	window.addEventListener('keydown', handleKeydown)
+
+	return () => {
+		window.removeEventListener('keydown', handleKeydown)
+	}
+}, [count])
+
+// if there is a focus, it will also count as a button clicked if spacebar is pressed
+// remove it via:
+
+const handleClick = (event) => {
+	event.currentTarget.blur()
+}
+```
+### Using children props to prop drill
+When you have a component that serves as a style/container only, you can opt to not pass the props in it for its children to use
+```tsx
+export default function ComponentWithState({ children }) {
+	const [state, setState] = useState(null)
+	return (
+	<ParentComponent>
+		<ChildrenComponent state={state}/>
+	</ParentComponent>
+	)
+}
+
+export default functin ParentComponent({ children }) {
+	return <div className="style">{ children }<div>
+}
+```
+### Controlled vs. Uncontrolled inputs
+```tsx
+
 ```
