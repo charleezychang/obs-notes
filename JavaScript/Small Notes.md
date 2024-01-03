@@ -25,7 +25,8 @@ alert(String(value)); // null
 ```
 
 ### || vs ?? 
-**Logical OR operator uses the right side value if the left side one is falsy**, undefined or null does not mean false
+**Logical OR operator uses the right side value if the left side one is falsy**
+Undefined or null does not mean false
 ```tsx
 console.log(true || "shameel"); // true
 console.log(false || "shameel"); // "shameel"
@@ -59,3 +60,21 @@ console.log(null ?? "shameel"); // "shameel"
 [Do you know the difference between target vs. currentTarget? (youtube.com)](https://www.youtube.com/watch?v=F2pbD_Mr91Y&ab_channel=CodinginPublic)
 target = what is specifically clicked on
 currentTarget = where the eventListener is attached (commonly a container where there are more child elements)
+### array.some(), array.find(), array.filter()
+some() - atleast 1 condition is true, returns boolean
+```js
+numbers = [10, 100, 1000]
+const result = numbers.some(function(number) {
+	return number > 10000;
+})
+console.log(result) // false
+```
+find() - atleast 1 condition is true, returns first value that satisfies condition
+```js
+numbers = [10, 100, 1000]
+const result = numbers.find(function(number) {
+	return number > 1000;
+})
+console.log(result) // 1000
+```
+filter() - similar to find() but returns an array of all true cases

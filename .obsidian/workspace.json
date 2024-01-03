@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/Small Notes.md",
+                "file": "JavaScript/Small Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "React/Small Notes.md",
+                "file": "JavaScript/Small Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "React/Small Notes.md",
+                "file": "JavaScript/Small Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "React/Small Notes.md"
+                "file": "JavaScript/Small Notes.md"
               }
             }
           },
@@ -158,10 +158,10 @@
   },
   "active": "0f9bf4b997c4bb53",
   "lastOpenFiles": [
-    "JavaScript/Small Notes.md",
-    "Resources.md",
     "JavaScript/Primitive Types.md",
+    "JavaScript/Small Notes.md",
     "React/Small Notes.md",
+    "Resources.md",
     "NextJS/Small Notes.md",
     "React/useReducer.md",
     "React/React Hook Form + Zod.md",

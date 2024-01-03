@@ -262,6 +262,18 @@ export default functin ParentComponent({ children }) {
 }
 ```
 ### Controlled vs. Uncontrolled inputs
+Controlled input is where the value is stored in a state, vs. uncontrolled input where the value is just stored in the input tags. Main advantage of controlled input is you can now use the value elsewhere
 ```tsx
+const [text, setText] = useState("")
 
+return (
+	<textarea
+		value={text}
+		onChange={(e) => {
+			const newText = e.target.value;
+			setText(newText)
+		}}
+		placeholder="Enter your text"
+		spellCheck="false"
+)
 ```
