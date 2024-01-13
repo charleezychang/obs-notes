@@ -1,4 +1,4 @@
-c----------
+----------
 ```
 npm create vite@<version> .
 ```
@@ -158,59 +158,9 @@ type ProfileType = {
 
 const [profile, setProfile] = useState<ProfileType | null>(null)
 ```
-### Custom hook with Context API (Template)
-```tsx
-import { createContext, useContext, useState } from "react";
-
-type ThemeContextProviderProps = {
-	children: React.ReactNode;
-}
-
-type theme = 'dark' | 'light'
-
-type ThemeContext = {
-	theme: theme;
-	// Can hover setTheme to check type
-	setTheme: React.Dispatch<React.SetStateAction<theme>>;
-}
-// if the context is used outside the provider, it will return null
-const ThemeContext = createContext<ThemeContext | null>(null);
-
-export default function ThemeContextProvider({
-	children
-}: ThemeContextProviderProps) {
-	const [theme, setTheme] = useState<Theme>("light");
-
-	return (
-		<ThemeContext.Provider
-			value={{
-				theme,
-				setTheme
-			}}
-		>
-			{children}
-		</ThemeContext.Provider> 	
-	)
-}
-// Custom hook for Context API's solves 2 problems
-// 1. The need to import the context in each component that uses it
-// 2. The need to check if its null in each component that uses it
-export function useThemeContext() {
-	const context = useContext(ThemeContext);
-	if (!context) {
-		throw new Error("useThemeContext must be used within a ThemeContextProvider")
-	}
-	return context
-}
-
-// importing the custom hook
-const { theme, setTheme } = useThemeContext()
-```
-
-
-
 ### Passing only the setState
 You can reference the state by using the parameter of setState
+Though, consider making a function in the parent component that use this setState and pass this function to the child component instead
 ```tsx
 function ParentComponent() {
 	const [count, setCount] = useState(0)
@@ -222,7 +172,7 @@ function ChildComponent(props) {
 }
 ```
 
-### Attach key listener to website
+### Attach key listener to website using useEffect
 ```tsx
 useEffect(() => {
 	const handleKeydown = (event) => {
@@ -276,4 +226,21 @@ return (
 		placeholder="Enter your text"
 		spellCheck="false"
 )
+```
+### htmlFor, affixing input and label
+Since `for` is reserved for loops in JavaScript, the syntax for `for` in the context of labels and inputs is `htmlFor` in JSX. Additionally, you can make the `input` the child of `label`:
+```jsx
+<label>
+	<input type="checkbox"/> The Label
+</label>
+```
+
+### react-select
+[react-select - npm (npmjs.com)](https://www.npmjs.com/package/react-select)
+
+### Running useState's initial value only on first render
+```tsx
+const [items, setItems] = useState(() => {
+	JSON.parse(localStorage.getItem("item") || initialItems)
+})
 ```
