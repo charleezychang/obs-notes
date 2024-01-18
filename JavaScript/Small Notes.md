@@ -60,6 +60,14 @@ console.log(null ?? "shameel"); // "shameel"
 [Do you know the difference between target vs. currentTarget? (youtube.com)](https://www.youtube.com/watch?v=F2pbD_Mr91Y&ab_channel=CodinginPublic)
 target = what is specifically clicked on
 currentTarget = where the eventListener is attached (commonly a container where there are more child elements)
+```jsx
+// If I click on the icon or the count, that is the target
+// currentTarget is the whole container itself aka the button
+<button onClick={handleClick}>
+	<TriangleIcon />
+	<span>{count}</span>
+</button
+```
 ### array.some(), array.find(), array.filter()
 some() - atleast 1 condition is true, returns boolean
 ```js
@@ -94,7 +102,7 @@ const clickHandler = async () => {
             },
             body: JSON.stringify(newUser)
         });
-
+		// res only contains the meta-data (headers, config, etc.)
         const data = await res.json();
 
         if (res.ok) {
@@ -135,4 +143,51 @@ console.timeEnd('filter array')
 
 // log: filter array: 0.15ms
 // if its more than 1ms, its considered expensive
+```
+### API Error Sources
+```jsx
+fetch("https://xxxxxxxx.com)
+	  .then((response) => {
+		  if(!response.ok) {
+			  throw new Error()
+		  }
+		  return response.json()
+	  })
+	  .then((data) => {
+		  // do something
+	  })
+	  .ctach(() => {
+		  // 1. network error while fetching
+		  // 2. theres a response but not 2xx
+		  // 3. theres a response, it is 200, but not in json format
+	  })
+```
+
+### Filter out duplicates in an array
+```js
+const unique = array.filter((value, index, array) => {
+	return array.indexOf(value) === index
+})
+
+// Example
+const companyList = [ 'ABC', 'XYZ', 'ABC'];
+
+// Iteration 1 (company: 'ABC', index: 0): `array.indexOf('ABC')` returns 0 (first occurrence), so it's kept.
+// Iteration 2 (company: 'XYZ', index: 1): `array.indexOf('XYZ')` returns 1 (first occurrence), so it's kept.
+// Iteration 3 (company: 'ABC', index: 2): `array.indexOf('ABC')` returns 0 (not the first occurrence, already included), so it's filtered out.
+```
+### Prevent Event Bubbling (stopPropagation)
+```tsx
+const handleUpvote = (e: React.MouseEvent<HTMLButtonElement,MouseEvent> => {
+	setUpvoteCount((prev) => ++prev)
+	e.stopPropagation()
+})
+
+return (
+	<li onClick={() => setOpen(prev => !prev)>
+		// the onClick event on the button will bubble upwards 
+		// triggering the onClick event of the <li> tag also 
+		<button> onClick={(e) => handleUpvote}></button>
+	</li>
+)
 ```

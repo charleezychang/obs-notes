@@ -8,12 +8,29 @@ Folder inside `src` called `stores` with files named as `<noun>Store.js`
 import { create } from "zustand"
 import { initialItems } from "../lib/constants"
 
-export const useItemsStore = create((set) => ({
+type Store = {
+	items: ItemType[]'
+	removeAllItems: () => void;
+	getFilteredItems: () => ItemType[];
+	betterGetFilteredItems: (id: string) => Promise<ItemType[]>
+}
+
+export const useItemsStore = create<Store>((set, get) => ({
 	items: initialItems,
 	removeAllItems: () => {
-		set(() => {
+		// set edits the entire store, so it must return an object
+		// if a property is untouched, it is retained 
+		set(() => ({
 			items: []
-		})
+		}))
+	},
+	getFilteredItems: () => {
+		// get() returns the entire store
+		return get().items.filter(() => ())
+	},
+	betterGetFilteredItems: async (id: string) => {
+		const state = get();
+		return state.items.filter(() => ())
 	}
 }))
 ```
@@ -42,9 +59,9 @@ export const useItemsStore = create(
 	persist((set) => ({
 		items: initialItems,
 		removeAllItems: () => {
-			set(() => {
+			set(() => ({
 				items: []
-			})
+			}))
 		}
 	}), {
 		name: "items"

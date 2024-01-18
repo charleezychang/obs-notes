@@ -27,6 +27,9 @@ export default function AddItemForm() {
 
 ### useMemo
 Consider useMemo as pure optimization technique. Cache the result of a calculation between re-renders. Program should continue to work correctly even if you replace useMemo with a regular function call.
+- Sorting
+- Filtering
+- Mapping
 `useMemo(calculateValue, dependencies)`
 ```tsx
 import { useMemo } from 'react';  
