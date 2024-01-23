@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JavaScript/Small Notes.md",
+                "file": "React/Data Fetching.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "promise",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "JavaScript/Small Notes.md",
+                "file": "React/Data Fetching.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "JavaScript/Small Notes.md",
+                "file": "React/Data Fetching.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "JavaScript/Small Notes.md"
+                "file": "React/Data Fetching.md"
               }
             }
           },
@@ -160,24 +160,27 @@
   },
   "active": "854a2d6b06e3cb97",
   "lastOpenFiles": [
-    "React/Zustand.md",
-    "JavaScript/Small Notes.md",
-    "NextJS/Small Notes.md",
-    "TypeScript/Any vs. Unknown.md",
-    "React/Basic Hooks.md",
+    "React/Hooks.md",
     "React/React Hook Form + Zod.md",
-    "React/Small Notes.md",
     "React/useReducer.md",
-    "JavaScript/Primitive Types.md",
+    "React/Small Notes.md",
+    "TypeScript/Current Issues.md",
+    "TypeScript/Any vs. Unknown.md",
+    "JavaScript/Small Notes.md",
+    "React/Data Fetching.md",
+    "NextJS/Small Notes.md",
+    "NextJS/Next Auth.md",
+    "React/Zustand.md",
+    "TypeScript/Generics.md",
+    "TypeScript/Discriminating Union.md",
+    "TypeScript/Type vs. Interface.md",
     "Resources.md",
+    "JavaScript/Primitive Types.md",
+    "React/Untitled",
     "Images/Pasted image 20240112195720.png",
     "Images",
     "Pasted image 20240112195704.png",
     "Pasted image 20240112195543.png",
-    "TypeScript/Discriminating Union.md",
-    "TypeScript/Generics.md",
-    "TypeScript/Type vs. Interface.md",
-    "NextJS/Next Auth.md",
     "Other/Docker.md",
     "Other/Representing States Other Than Booleans.md",
     "Other/OOP.md",
@@ -194,7 +197,6 @@
     "DSA",
     "Untitled.md",
     "NextJS",
-    "Other",
-    "Other Notes.md"
+    "Other"
   ]
 }

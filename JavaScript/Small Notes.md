@@ -123,7 +123,7 @@ If the result is negative, `a` is sorted before `b`.
 If the result is positive, `b` is sorted before `a`.
 If the result is 0, no changes are done with the sort order of the two values.
 ```tsx
-const sorted = [...items].sort((a, b) => {
+const sorted = [...(items || [])].sort((a, b) => {
 	if (sortBy == 'packed') {
 		return b.packed - a.packed
 	}
@@ -132,7 +132,7 @@ const sorted = [...items].sort((a, b) => {
 		return a.packed - b.packed
 	}
 
-	return
+	return 0
 })
 ```
 ### How to tell if a calculation is expensive?
@@ -176,7 +176,8 @@ const companyList = [ 'ABC', 'XYZ', 'ABC'];
 // Iteration 2 (company: 'XYZ', index: 1): `array.indexOf('XYZ')` returns 1 (first occurrence), so it's kept.
 // Iteration 3 (company: 'ABC', index: 2): `array.indexOf('ABC')` returns 0 (not the first occurrence, already included), so it's filtered out.
 ```
-### Prevent Event Bubbling (stopPropagation)
+### Prevent Event Bubbling (stopPropagation and preventDefault)
+`e.stopPropagation()` prevents the event from bubbling up the DOM tree, `e.preventDefault()` prevents the browser from doing whatever default behavior is associated with the event - e.g. a click event on an `<a>` tag will make the browser redirect to the `href` of the link, but if you use `preventDefault`
 ```tsx
 const handleUpvote = (e: React.MouseEvent<HTMLButtonElement,MouseEvent> => {
 	setUpvoteCount((prev) => ++prev)
@@ -190,4 +191,41 @@ return (
 		<button> onClick={(e) => handleUpvote}></button>
 	</li>
 )
+```
+### Renaming destructured object
+```jsx
+const { jobItemsSliced: jobItems } = useJobItems(searchText)
+return(
+	<p>{jobItems}</p>
+)
+```
+### Location (HTML DOM API)
+[Location - Web APIs | MDN (mozilla.org)](https://developer.mozilla.org/en-US/docs/Web/API/Location)
+```js
+// location: https://developer.mozilla.org:8080/en-US/search?q=URL#search-results-close-container
+const loc = document.location;
+console.log(loc.href); // https://developer.mozilla.org:8080/en-US/search?q=URL#search-results-close-container
+console.log(loc.protocol); // https:
+console.log(loc.host); // developer.mozilla.org:8080
+console.log(loc.hostname); // developer.mozilla.org
+console.log(loc.port); // 8080
+console.log(loc.pathname); // /en-US/search
+console.log(loc.search); // ?q=URL
+console.log(loc.hash); // #search-results-close-container
+console.log(loc.origin); // https://developer.mozilla.org:8080
+
+location.assign("http://another.site"); // load another page
+```
+
+### Converting string to a number
+[How to Convert a String to a Number in JavaScript (freecodecamp.org)](https://www.freecodecamp.org/news/how-to-convert-a-string-to-a-number-in-javascript/)
+
+### Default parameter in functions
+```js
+function useDebounce(value, delay = 500) {
+	// do something
+}
+
+useDebounce(value)
+useDebounce(value, 1000)
 ```

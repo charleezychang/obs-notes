@@ -244,3 +244,17 @@ const [items, setItems] = useState(() => {
 	JSON.parse(localStorage.getItem("item") || initialItems)
 })
 ```
+### Alternative in Determining Types of Elements
+```tsx
+import { useRef, ElementRef, useEffect } from "react",
+// instead of hovering over the audio tag to determine its type
+const Component = () => {
+	const audioRef = useRef<HTMLAudioElement>(null);
+	return <audio ref=(audioRef)>Hello</audio>;
+}
+// you can use ElementRef
+const Component = () => {
+	const audioRef = useRef<ElementRef<audio>>(null);
+	return <audio ref=(audioRef)>Hello</audio>;
+}
+```

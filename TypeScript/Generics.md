@@ -17,6 +17,8 @@ const convertToArray = <T>(input: T): T[] {
 
 Example 2
 ```tsx
+// all generic types that will be used should be specified in the angled brackets
+// this will also tell TypeScript that the function uses generic types
 function getIndexOfArrayItem<T>(array: T[], arrayItem: T) {
 	return array.findIndex((item) => item === arrayItem)
 }

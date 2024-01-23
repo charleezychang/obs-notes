@@ -23,8 +23,6 @@ export default function AddItemForm() {
 	)
 }
 ```
-
-
 ### useMemo
 Consider useMemo as pure optimization technique. Cache the result of a calculation between re-renders. Program should continue to work correctly even if you replace useMemo with a regular function call.
 - Sorting
@@ -68,6 +66,30 @@ export default const ItemsContextProvider({ children }) {
 const {items, handleAdditem} = useContext(ItemsContext)
 ```
 - To simplify and to avoid importing useContext everytime, make a [[#Custom hook with Context API (Template)]]
+
+### useEffect
+```jsx
+useEffect(() => {
+	const handleChangeHash = () => {
+		console.log(window.location.hash.slice(1));
+	}
+	handleChangeHash()
+	window.addEventListener("hashchange", handleChangeHash)
+	// clean up function will run everytime the dependency changes
+	return () => {
+		window.removeEventListener("hashchange", handleChangeHash)
+	}
+}, [])
+```
+
+-------------------------
+# Custom Pre-made Hooks
+
+[useHooks – The React Hooks Library](https://usehooks.com/)
+[usehooks-ts](https://usehooks-ts.com/)
+
+---------------------------------
+# Custom Hooks
 
 ### Custom hook with Context API (Template)
 Consider using [[Zustand]]
@@ -118,3 +140,24 @@ export function useThemeContext() {
 // importing the custom hook
 const { theme, setTheme } = useThemeContext()
 ```
+### Custom hook destructuring
+The returning value of a custom hook can be an object or array. Destructured object must strictly use the same naming convention of the properties of the object but you can opt to not use all the returned variables. Destructured array can have aliases (the way that useState is also configured), consequently, you must return all variables in the same order.
+```tsx
+const useJobItems() => {
+	const [job, setJob] = useState('')
+	const [id, setId] = useState(0)
+	return {job, id}
+}
+
+const {job, id: renamedId} = useJobItems()
+```
+```tsx
+const useJobItems() => {
+	const [job, setJob] = useState('')
+	const [id, setId] = useState(0)
+	return [job, id] as const
+}
+
+const [job, renamedId] = useJobItems()
+```
+Important to note the `as const` in the return. This makes sure that the items in destructured array will follow the exact types (each corresponding item) of the returned array. Without it, `job` and `renamedId` will both have types `string | number`. With it, `job` will be typed as `string` and `id` as `number`
