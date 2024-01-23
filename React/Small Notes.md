@@ -244,7 +244,7 @@ const [items, setItems] = useState(() => {
 	JSON.parse(localStorage.getItem("item") || initialItems)
 })
 ```
-### Alternative in Determining Types of Elements
+### Alternative in Typing Elements
 ```tsx
 import { useRef, ElementRef, useEffect } from "react",
 // instead of hovering over the audio tag to determine its type
@@ -256,5 +256,22 @@ const Component = () => {
 const Component = () => {
 	const audioRef = useRef<ElementRef<audio>>(null);
 	return <audio ref=(audioRef)>Hello</audio>;
+}
+```
+### Inserting components into specific parts of the DOM (portals)
+Particularly useful for pop-ups to minimize the use of the z-index in CSS as it can be troublesome if the component is deeply drilled into the DOM tree.
+```tsx
+import { createPortal } from 'react-dom';  
+
+function MyComponent() {  
+	return (  
+		<div style={{ border: '2px solid black' }}>  
+			<p>This child is placed in the parent div.</p>  
+			{createPortal(  
+				<p>This child is placed in the document body.</p>,  
+				document.body  
+			)}  
+		</div>  
+	);  
 }
 ```

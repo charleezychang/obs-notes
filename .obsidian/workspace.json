@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "React/Data Fetching.md",
+                "file": "NextJS/Small Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "React/Data Fetching.md",
+                "file": "NextJS/Small Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "React/Data Fetching.md",
+                "file": "NextJS/Small Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "React/Data Fetching.md"
+                "file": "NextJS/Small Notes.md"
               }
             }
           },
@@ -160,22 +160,25 @@
   },
   "active": "854a2d6b06e3cb97",
   "lastOpenFiles": [
+    "React/Optimization.md",
     "React/Hooks.md",
-    "React/React Hook Form + Zod.md",
-    "React/useReducer.md",
-    "React/Small Notes.md",
-    "TypeScript/Current Issues.md",
-    "TypeScript/Any vs. Unknown.md",
-    "JavaScript/Small Notes.md",
     "React/Data Fetching.md",
+    "React/Zustand.md",
+    "React/Small Notes.md",
+    "React/React Hook Form + Zod.md",
+    "JavaScript/Primitive Types.md",
+    "TypeScript/Current Issues.md",
     "NextJS/Small Notes.md",
     "NextJS/Next Auth.md",
-    "React/Zustand.md",
+    "React/useReducer.md",
+    "Guide.md",
+    "Resources.md",
+    "Link.md",
+    "TypeScript/Any vs. Unknown.md",
+    "JavaScript/Small Notes.md",
     "TypeScript/Generics.md",
     "TypeScript/Discriminating Union.md",
     "TypeScript/Type vs. Interface.md",
-    "Resources.md",
-    "JavaScript/Primitive Types.md",
     "React/Untitled",
     "Images/Pasted image 20240112195720.png",
     "Images",
@@ -190,12 +193,9 @@
     "Other/VSCode.md",
     "HTML CSS Tailwind/Small Notes.md",
     "Pasted image 20231120152643.png",
-    "Guide.md",
     "Steve Schoger, Adam Wathan - Refactoring UI (2018).pdf",
-    "Pasted image 20231113020434.png.md",
     "Pasted image 20231113020434.png",
     "DSA",
-    "Untitled.md",
     "NextJS",
     "Other"
   ]

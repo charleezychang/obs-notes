@@ -44,6 +44,7 @@ let y = 'you can add syntax highlighting by specifying it after the first triple
 [You can create hyperlinks by first adding the text in brackets and then the link in parentheses after it](http://google.com)
 Or if you want the text to be the URL the itself, just wrap it in angle brackets <http://google.com>
 Or just the link itself http://google.com
+Linking to headers [[note#heading|displayText]], if on the same note, [[#heading|displayText]] 
 
 ##### Images (not supported in Obsidian)
 !(alt-description)[URL to the image]
