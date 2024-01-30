@@ -20,6 +20,7 @@ https://undraw.co/
 [https://ui.shadcn.com/](https://ui.shadcn.com/ "https://ui.shadcn.com/")
 [https://mantine.dev/pages/basics/](https://mantine.dev/pages/basics/ "https://mantine.dev/pages/basics/")
 [https://chakra-ui.com/](https://chakra-ui.com/ "https://chakra-ui.com/") 
+[Aceternity UI](https://ui.aceternity.com/)
 ### Other
 [Course overview + the shell · Missing Semester (mit.edu)](https://missing.csail.mit.edu/2020/course-shell/)
 [musicForProgramming();](https://musicforprogramming.net/latest/)

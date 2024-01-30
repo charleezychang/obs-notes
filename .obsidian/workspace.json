@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NextJS/Small Notes.md",
+                "file": "HTML CSS Tailwind/Small Notes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NextJS/Small Notes.md",
+                "file": "HTML CSS Tailwind/Small Notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NextJS/Small Notes.md",
+                "file": "HTML CSS Tailwind/Small Notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NextJS/Small Notes.md"
+                "file": "HTML CSS Tailwind/Small Notes.md"
               }
             }
           },
@@ -160,27 +160,30 @@
   },
   "active": "854a2d6b06e3cb97",
   "lastOpenFiles": [
-    "React/Optimization.md",
-    "React/Hooks.md",
-    "React/Data Fetching.md",
-    "React/Zustand.md",
-    "React/Small Notes.md",
-    "React/React Hook Form + Zod.md",
-    "JavaScript/Primitive Types.md",
-    "TypeScript/Current Issues.md",
-    "NextJS/Small Notes.md",
+    "Images/Pasted image 20240112195720.png",
     "NextJS/Next Auth.md",
-    "React/useReducer.md",
-    "Guide.md",
-    "Resources.md",
-    "Link.md",
-    "TypeScript/Any vs. Unknown.md",
+    "NextJS/Small Notes.md",
     "JavaScript/Small Notes.md",
+    "JavaScript/Primitive Types.md",
+    "React/Optimization.md",
+    "React/React Hook Form + Zod.md",
+    "TypeScript/Small Notes.md",
+    "HTML CSS Tailwind/Small Notes.md",
     "TypeScript/Generics.md",
     "TypeScript/Discriminating Union.md",
+    "TypeScript/Any vs. Unknown.md",
+    "TypeScript/Current Issues.md",
+    "TypeScript/Untitled",
     "TypeScript/Type vs. Interface.md",
+    "Resources.md",
+    "React/Hooks.md",
+    "React/Small Notes.md",
+    "React/Zustand.md",
+    "React/Data Fetching.md",
+    "React/useReducer.md",
+    "Guide.md",
+    "Link.md",
     "React/Untitled",
-    "Images/Pasted image 20240112195720.png",
     "Images",
     "Pasted image 20240112195704.png",
     "Pasted image 20240112195543.png",
@@ -189,9 +192,6 @@
     "Other/OOP.md",
     "Other/DSA.md",
     "React/Basic Hooks",
-    "custom hook.md",
-    "Other/VSCode.md",
-    "HTML CSS Tailwind/Small Notes.md",
     "Pasted image 20231120152643.png",
     "Steve Schoger, Adam Wathan - Refactoring UI (2018).pdf",
     "Pasted image 20231113020434.png",

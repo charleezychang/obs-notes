@@ -2,6 +2,8 @@
 ```
 npm create vite@<version> .
 ```
+
+React TypeScript Cheat Sheet: https://react-typescript-cheatsheet.netlify.app/
 ### Logical `&&` Operator for Conditional Rendering
 Be aware when using `&&` operator when the expression is `0` or `NaN`
 ```tsx
