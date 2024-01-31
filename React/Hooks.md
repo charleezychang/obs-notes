@@ -180,7 +180,7 @@ Note: every time you attach a hook to a component, it will run an instance of th
 - Since it uses the children props pattern, it does not re-render all children, but rather only the components that consume the context
 - Consider using [[Zustand]] if the context has a lot of states and various components consume different states from the context for selectivity
 - You can use context inside another context provided that the providers are nested properly
-- Data Wrapper Pattern - wrap component in a wrapper component to 
+- Data Wrapper Pattern - wrap component in a wrapper component if need to avoid re-rendering a parent component that is caused by a change in state
 - Using useMemo for the provider values if needed
 ```tsx
 import { createContext, useContext, useState } from "react";
@@ -240,6 +240,7 @@ const useJobItems() => {
 
 const {job, id: renamedId} = useJobItems()
 ```
+
 ```tsx
 const useJobItems() => {
 	const [job, setJob] = useState('')

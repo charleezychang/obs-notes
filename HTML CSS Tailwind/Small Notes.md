@@ -39,7 +39,8 @@ export default function Button() {
 }
 ```
 ### Tailwind: Overwriting Classes and Conditional Classes (via Object)
-Tailwind does not take class order into consideration so you cannot overwrite classes in your favor. Use `twMerge`: [tailwind-merge - npm (npmjs.com)](https://www.npmjs.com/package/tailwind-merge)
+Tailwind does not take class order into consideration so you cannot overwrite classes in your favor. This is particularly useful when you want to add a `className` prop into a custom reusable component and then want to modify some of its styling.
+Use `twMerge`: [tailwind-merge - npm (npmjs.com)](https://www.npmjs.com/package/tailwind-merge)
 ```tsx
 import { twMerge } from 'tailwind-merge'
 
@@ -60,7 +61,7 @@ Creating a utility function to use both `twMerge` and `clsx`:
 ```js
 import { twMerge } from "tailwind-merge"
 import { clsx, ClassValue } from "clsx"
-
+// ...inputs takes in all parameters regardless of type and places them in an array
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs))
 }
@@ -82,5 +83,80 @@ function Button({ color, children }) {
 ### Common Tailwind Classes
 - `flex`
 - `flex-col`
+- `flex-1`
+- `flex-wrap`
+- `basis-80`
 - `items-center`
-- 
+- `justify-between`
+- `max-w-screen`
+- `border-b`
+- `border-white/50` 
+- `h-14`
+- `md:px-9`
+- `mt-auto`
+- `gap-x-6`
+- `text-sm`
+- `hover:text-white`
+- `text-3xl`
+- `font-bold`
+- `tracking-tight`
+- `leading-8`
+- `opacity-75`
+- `w-full`
+- `rounded-lg`
+- `outline-none`
+- `space-x-2`
+- `mx-auto`
+- `object-fit`
+- `object-cover
+- `whitespace-nowrap`
+- `transition`
+- `w-[initial]`
+### Add custom colors to Tailwind
+In `tailwind.config.ts`
+```tsx
+const config: Config = {
+	theme: {
+		extend: {
+			colors: {
+				accent: "#a4f839"
+			}
+		}
+	}
+}
+```
+### Customize Scrollbar
+`globals.css`
+```css
+/* SCROLLBAR STYLING */
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f1015;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #0f1015 rgba(255, 255, 255, 0.1);
+}
+```
+### Custom classes in Tailwind
+Not recommended but in some cases, this is the best case to reduce duplicate code.
+`globals.css`
+```css
+.state-effects {
+	@apply transition hover:scale-105 active:scale-[1.02]
+}
+```
