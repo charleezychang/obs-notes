@@ -1,5 +1,5 @@
 - React rerenders from top to bottom. Clean and tidy up the root as much as possible by maximizing Context API, even better to opt for Zustand
-- Check for derived states that do not need useState
+- Check for derived states that do not need a separate useState
 - Analyze all components (even contexts), use useMemo and useCallback
 - Refactor recurring components, either by children prop or making smaller components
 - Make sure all array and object manipulation are copied and not mutated due to them being reference type (especially if they are a dependency for useEffect or useMemo)
