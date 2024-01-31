@@ -4,3 +4,4 @@
 - Refactor recurring components, either by children prop or making smaller components
 - Make sure all array and object manipulation are copied and not mutated due to them being reference type (especially if they are a dependency for useEffect or useMemo)
 - Use constants
+- Checkk all null checks, unknown, and any types

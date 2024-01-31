@@ -54,8 +54,22 @@ function TodoList({ todos, tab }) {
 }
 ```
 
-Another use case for useMemo is in context provider values
+Another use case for useMemo is in context provider values. It is known that the context provider re-renders when a part of it changes value. You can utilize useMemo to specifically cache values. Make a variable that houses the values of the context and then specify the useMemo dependencies. Pass this variable in the provider value props.
 ### useCallback
+`useCallback(fn, dependencies)`
+Call `useCallback` at the top level of your component to cache a function definition between re-renders:
+```tsx
+import { useCallback } from 'react';  
+
+export default function ProductPage({ productId, referrer, theme }) {  
+	const handleSubmit = useCallback((orderDetails) => {  
+		post('/product/' + productId + '/buy', {  
+			referrer,  
+			orderDetails,  
+	});  
+
+}, [productId, referrer]);
+```
 ### useContext
 - Generally file-named as nounContextProvider.jsx under a different folder, usually named as "Contexts". 
 - Wrap the provider to the components that need it as children prop. Context also needs to import and return children. 
@@ -83,7 +97,6 @@ export default const ItemsContextProvider({ children }) {
 const {items, handleAdditem} = useContext(ItemsContext)
 ```
 - To simplify and to avoid importing useContext everytime, make a [[#Custom hook with Context API (Template)]]
-
 ### useEffect
 ```jsx
 useEffect(() => {
@@ -167,8 +180,8 @@ Note: every time you attach a hook to a component, it will run an instance of th
 - Since it uses the children props pattern, it does not re-render all children, but rather only the components that consume the context
 - Consider using [[Zustand]] if the context has a lot of states and various components consume different states from the context for selectivity
 - You can use context inside another context provided that the providers are nested properly
-- Data Wrapper Pattern
-- Using useMemo for the provider values
+- Data Wrapper Pattern - wrap component in a wrapper component to 
+- Using useMemo for the provider values if needed
 ```tsx
 import { createContext, useContext, useState } from "react";
 
