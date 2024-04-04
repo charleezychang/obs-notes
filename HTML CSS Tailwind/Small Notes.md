@@ -112,6 +112,7 @@ function Button({ color, children }) {
 - `whitespace-nowrap`
 - `transition`
 - `w-[initial]`
+- `animate-pulse`
 ### Add custom colors to Tailwind
 In `tailwind.config.ts`
 ```tsx

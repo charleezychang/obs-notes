@@ -277,3 +277,10 @@ function MyComponent() {
 	);  
 }
 ```
+
+### Repeating components via mapping empty array with length
+```js
+Array.from({ length: 6 }).map((_item, index) => {
+	<SkeletonCard key={i} />
+})
+```

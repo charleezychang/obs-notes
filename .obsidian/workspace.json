@@ -13,19 +13,19 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML CSS Tailwind/Small Notes.md",
+                "file": "CSharp/Dependency Injection.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "fd65140441102ee2",
+            "id": "c153ea5fc457b7c9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "HTML CSS Tailwind/Small Notes.md",
+                "file": "CSharp/Async Await Task.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "HTML CSS Tailwind/Small Notes.md",
+                "file": "CSharp/Async Await Task.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "HTML CSS Tailwind/Small Notes.md",
+                "file": "CSharp/Async Await Task.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "HTML CSS Tailwind/Small Notes.md"
+                "file": "CSharp/Async Await Task.md"
               }
             }
           },
@@ -171,45 +171,53 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fd65140441102ee2",
+  "active": "c153ea5fc457b7c9",
   "lastOpenFiles": [
-    "Images/Pasted image 20240112195720.png",
+    "CSharp/CSharp for Beginners.md",
+    "CSharp/Dependency Injection.md",
     "HTML CSS Tailwind/Small Notes.md",
-    "React/Hooks.md",
-    "React/Data Fetching.md",
-    "React/Optimization.md",
-    "React/React Hook Form + Zod.md",
     "React/Small Notes.md",
-    "TypeScript/Small Notes.md",
+    "React/Hooks.md",
+    "Resources.md",
+    "CSharp/Async Await.md",
+    "CSharp/Async Await Task.md",
+    "CSharp/Dependency Injection/Services/NumbersTwoServices .cs",
+    "CSharp/Dependency Injection/Services/NumbersOneServices copy.cs",
+    "CSharp/Dependency Injection/Services copy/NumbersTransientServices.cs",
+    "CSharp/Dependency Injection/Services copy/NumbersSingletonServices.cs",
+    "CSharp/Dependency Injection/Services copy/INumbersTransientServices.cs",
+    "CSharp/Dependency Injection/Services copy/NumbersOneServices.cs",
+    "CSharp/Dependency Injection/Services copy/INumbersSingletonServices.cs",
+    "CSharp/Dependency Injection/Services copy/INumbersServices.cs",
+    "CSharp/Dependency Injection/Services copy",
+    "CSharp/Dependency Injection/Services/NumbersOneServices.cs",
+    "Guide.md",
+    "Images/Pasted image 20240326161148.png",
+    "Images/Pasted image 20240326161052.png",
+    "Images/Pasted image 20240326161026.png",
+    "Images/Pasted image 20240112195720.png",
+    "Images/9.jpg",
+    "Images/11.jpg",
+    "Images/8.jpg",
+    "Other/SOLID.md",
+    "Other/OOP.md",
     "TypeScript/Type vs. Interface.md",
+    "TypeScript/Small Notes.md",
+    "React/Data Fetching.md",
+    "React/React Hook Form + Zod.md",
+    "React/Optimization.md",
+    "JavaScript/Small Notes.md",
+    "NextJS/Next Auth.md",
     "React/Zustand.md",
     "Other/Docker.md",
     "NextJS/Small Notes.md",
-    "NextJS/Next Auth.md",
-    "JavaScript/Small Notes.md",
     "JavaScript/Primitive Types.md",
     "TypeScript/Generics.md",
     "TypeScript/Discriminating Union.md",
     "TypeScript/Any vs. Unknown.md",
     "TypeScript/Current Issues.md",
-    "TypeScript/Untitled",
-    "Resources.md",
-    "React/useReducer.md",
-    "Guide.md",
-    "Link.md",
-    "React/Untitled",
-    "Images",
     "Pasted image 20240112195704.png",
     "Pasted image 20240112195543.png",
-    "Other/Representing States Other Than Booleans.md",
-    "Other/OOP.md",
-    "Other/DSA.md",
-    "React/Basic Hooks",
-    "Pasted image 20231120152643.png",
-    "Steve Schoger, Adam Wathan - Refactoring UI (2018).pdf",
-    "Pasted image 20231113020434.png",
-    "DSA",
-    "NextJS",
-    "Other"
+    "Pasted image 20231120152643.png"
   ]
 }

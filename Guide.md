@@ -59,9 +59,9 @@ ____
 
 ##### Table (GitHub Markdown)
 
-| Header | Header 2 | Header 3 |
-| -------- | --------:| :--------: |
-| Cell 1 | Right Align|Center Align |
+| Header |    Header 2 |   Header 3   |
+| ------ | ----------: | :----------: |
+| Cell 1 | Right Align | Center Align |
 
 ##### Checkbox
 - [ ] Unchecked checkbox. Dash Space Brackets with space
