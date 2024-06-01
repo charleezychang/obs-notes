@@ -16,7 +16,7 @@ Explicitly declaring a range
 > `names[2..4]` - including 2 excluding 4
 
 Adding items in arrays (only works in C# 12)
-> `names = [..names, "Damian]`
+> `names = [..names, "Damian"]`
 
 IEnumerable
 > Doesn't execute the query immediately (deferred execution), only when you use the variable (usually `foreach`)

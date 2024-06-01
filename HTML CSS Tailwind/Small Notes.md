@@ -108,7 +108,7 @@ function Button({ color, children }) {
 - `space-x-2`
 - `mx-auto`
 - `object-fit`
-- `object-cover
+- `object-cover`
 - `whitespace-nowrap`
 - `transition`
 - `w-[initial]`
