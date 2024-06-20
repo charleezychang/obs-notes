@@ -46,4 +46,43 @@ Component is marked automatically as dirty (calls `markViewDirty()`) for these c
 3. When you use use `| async`, ==marks ancestors as dirty==
 
 [Angular's Change Detection (youtube.com)](https://www.youtube.com/watch?v=0PJPZ3rLqrY)
-[Angular zoneless change detection (youtube.com)](https://www.youtube.com/watch?v=R2wjayCaw30)
+Zone.js implements the default strategy for change detection
+Functions in the template do not trigger CD, instead its triggered by:
+1. DOM Event
+2. Specific Async Task (for example, fetch() doesn't count)
+
+`ChangeDetectionStrategy.OnPush `
+- change detection cycle stops on this component and will only run it through if it is marked as dirty
+- Criteria for "Dirty Marking"
+	- manually via `ChangeDetectorRef.markForCheck()`
+	- handled DOM event (with event listener)
+	- async Pipe
+	- property binding (`@Input`)
+	- signal (Angular 16+)
+
+Common encounters with `ChangeDetectionStrategy.OnPush`
+1. If you feed data into a Material UI component (or any component libraries for that matter), it will be marked as dirty, since this marking happens upwards, all ancestors are marked dirty as well
+2. If a parent component, with `OnPush`, has a DOM event which updates a property of a child of `Default` strategy, you may encounter bugs since this triggers the CD cycle twice for the child (first is the DOM event, second one is property binding change). To solve this, use `ngOnChanges()` lifecycle hook so that the change in property is handled separately.
+   Best way is to change the child component's change detection strategy to `OnPush` also. This way, the DOM event from the parent component does not trigger the CD cycle onto the child.
+3. Mutable changes to objects and arrays do not trigger CD. Use spread operator.
+4. `ChangeDetectorRef.detectChanges()` runs CD cycle for the component and its children. It does not go through the parent's nor ancestor's which are still handled by the default change detection which is triggered by Zone.js
+5. `ChangeDetectorRef.markForCheck()` marks component and its ancestors as dirty for the next CD cycle. Commonly paired with the `OnPush` strategy. Case example, if a child component triggers a CD, a parent with `OnPush` strategy will not be re-rendered without being marked as dirty.
+6. DOM events with event listeners will trigger dirty marking even if the function for that listener is empty
+7. Signals mark the component as dirty, but not the ancestors. However, even if the parent is not marked as dirty, the CD will go pass through it and go through its children
+
+[Angular Performance: Your App at the Speed of Light - Christian Liebel | NG-DE 2019 (youtube.com)](https://www.youtube.com/watch?v=moUCZoJfhwY)
+Keep CD cycle < 16ms
+Profiling
+```ts
+// main.ts
+platformBrowserDynamic().bootstrapModule(AppModule).then(mobule => 
+enableDebugTools(module.injector.get(ApplicationRef).components[0]))
+```
+
+```ts
+// browser command line api, measure the duration of a change detection run (500ms or 5 change detection cycles)
+Execute ng.profiler.timeChangeDetection()
+```
+
+Component Tree Visualization
+[Understand Angular Change Detection (jeanmeche.github.io)](https://jeanmeche.github.io/angular-change-detection/)

@@ -19,6 +19,31 @@
 12. skipLast - dictates how many values should be skipped from the stream counting starting from the latest emitted value
 13. concat - combines streams, but will wait for the previous stream to finish (basically stream 1 then stream 2, stream 3)
 14. merge - combines streams, order of emission between streams are mixed, order of which is dependent on how fast the streams emit values
-15. zip - takes 1 from each stream and then combines them into an array (best to destructure)
+15. zip - takes 1 from each stream and then combines them into an array (best to de-structure)
 
+[TOP 6 Mistakes in RxJS code - YouTube](https://www.youtube.com/watch?v=OhuRvfcw3Tw)
+1. Nested subscriptions - use `switchMap`
+2. `takeUntilDestroyed` / `takeUntil` - only handles subscriptions before the operator, place at the end of the chain
+3. Manual subscriptions - not really avoidable in some situations, but much better to use `| async` or `toSignal` for modern versions
+4. Cold observables - happens when there are multiple `| async` or subscriptions calling a single observable, use `shareReplay(1)` to fix
+5. `distinctUntilChanged` - compares by reference so use a callback function with parameters previous and current value to compare properties of an object, or use `distinctUntilKeyChanged('propertyIWantToTrack')` if only tracking a single property
+6. Use `tap()` for side effects (changing properties outside the scope of the function)
 
+[RxJS: Hot vs Cold Observables - YouTube](https://www.youtube.com/watch?v=dWgpLoD1cCE)
+
+| Cold Observable                            |                                                              Hot Observable |
+| ------------------------------------------ | --------------------------------------------------------------------------: |
+| Doesn't emit until subscribed to           |                                                   Emits without subscribers |
+| Subscription activates the source          |                                              Creation activates the source, |
+| Unicast (1 observable = 1 subscriber)      |                                        Multicast (1 subject = n subscriber) |
+| `product$ = this.http.get<Product[]>(url)` | `productSubject = new Subject<number>();`<br>`this.productSubject.next(12)` |
+`Subject` vs. `BehaviorSubject`
+- `BehaviorSubject` always holds one value, when subscribed, it emits the value immediately, also must be created with an initial value
+- `Subject` doesn't hold a value
+![[Pasted image 20240621041631.png]]
+
+[How to share your RxJS observables for improved performance (youtube.com)](https://www.youtube.com/watch?v=H542ZSyubrE)
+`share() vs shareReplay(1)`
+- `share()` - uses `Subject` under the hood, so if a new subscription is called after emission of data, it will not be able to receive the initial data
+- `shareReplay(1)` - uses `ReplaySubject` under the hood, parameter is the number of emissions we want to emit prior to subscription (essentially like `BehaviorSubject` if 1)
+- `shareReplay({ bufferSize: 1, refCount: true })` - unsubscribe to source observable if there are no more subscribers (cold), will subscribe again if there a new subscribers (hot again)

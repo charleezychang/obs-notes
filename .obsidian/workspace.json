@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Angular/Change Detection.md",
+                "file": "Angular/Observables and RxJS.md",
                 "mode": "source",
                 "source": false
               }
@@ -82,7 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 244.5
+    "width": 200
   },
   "right": {
     "id": "6de130559d051ee0",
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Angular/Change Detection.md",
+                "file": "Angular/Observables and RxJS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Angular/Change Detection.md",
+                "file": "Angular/Observables and RxJS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Angular/Change Detection.md"
+                "file": "Angular/Observables and RxJS.md"
               }
             }
           },
@@ -174,22 +174,28 @@
   },
   "active": "c153ea5fc457b7c9",
   "lastOpenFiles": [
+    "Images/Pasted image 20240621041631.png",
+    "Guide.md",
     "Angular/Observables and RxJS.md",
-    "Angular/Lifecycle Hooks.md",
+    "Angular/Route Guards.md",
     "Angular/Change Detection.md",
+    "Angular/ngContainer ngContent ngTemplate ngTemplateOutlet.md",
+    "React/Hooks.md",
+    "React/Data Fetching.md",
+    "TypeScript/Type vs. Interface.md",
+    "TypeScript/Small Notes.md",
+    "JavaScript/Primitive Types.md",
+    "CSharp/Dependency Injection.md",
+    "CSharp/CSharp for Beginners.md",
+    "CSharp/Async Await Task.md",
+    "HTML CSS Tailwind/Small Notes.md",
+    "Angular/Lifecycle Hooks.md",
     "Angular/Docs Summary (angular.io)/Standalone components.md",
     "Angular/Docs Summary (angular.io).md",
     "Angular/Docs Summary (angular.io)",
-    "TypeScript/Small Notes.md",
-    "TypeScript/Type vs. Interface.md",
     "Angular/RxJS",
-    "HTML CSS Tailwind/Small Notes.md",
     "Angular",
-    "CSharp/CSharp for Beginners.md",
-    "CSharp/Async Await Task.md",
-    "CSharp/Dependency Injection.md",
     "React/Small Notes.md",
-    "React/Hooks.md",
     "Resources.md",
     "CSharp/Async Await.md",
     "CSharp/Dependency Injection/Services/NumbersTwoServices .cs",
@@ -199,7 +205,6 @@
     "CSharp/Dependency Injection/Services copy/INumbersTransientServices.cs",
     "CSharp/Dependency Injection/Services copy/NumbersOneServices.cs",
     "CSharp/Dependency Injection/Services copy/INumbersSingletonServices.cs",
-    "Guide.md",
     "Images/Pasted image 20240326161148.png",
     "Images/Pasted image 20240326161052.png",
     "Images/Pasted image 20240326161026.png",
@@ -209,14 +214,9 @@
     "Images/8.jpg",
     "Other/SOLID.md",
     "Other/OOP.md",
-    "React/Data Fetching.md",
     "React/React Hook Form + Zod.md",
     "React/Optimization.md",
     "JavaScript/Small Notes.md",
-    "NextJS/Next Auth.md",
-    "React/Zustand.md",
-    "Other/Docker.md",
-    "NextJS/Small Notes.md",
     "Pasted image 20240112195704.png",
     "Pasted image 20240112195543.png",
     "Pasted image 20231120152643.png"
