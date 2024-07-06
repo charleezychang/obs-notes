@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSharp/Dependency Injection.md",
+                "file": "Angular/Signals.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,14 +25,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Angular/Observables and RxJS.md",
+                "file": "Angular/Signals.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Angular/Observables and RxJS.md",
+                "file": "Angular/Signals.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Angular/Observables and RxJS.md",
+                "file": "Angular/Signals.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Angular/Observables and RxJS.md"
+                "file": "Angular/Signals.md"
               }
             }
           },
@@ -172,24 +171,27 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c153ea5fc457b7c9",
+  "active": "854a2d6b06e3cb97",
   "lastOpenFiles": [
+    "Angular/Change Detection.md",
+    "Angular/Signals vs.and RxJS.md",
+    "Angular/Signals.md",
+    "JavaScript/Primitive Types.md",
+    "JavaScript/Small Notes.md",
+    "CSharp/Async Await Task.md",
+    "Angular/Route Guards.md",
+    "CSharp/Dependency Injection.md",
+    "Angular/Observables and RxJS.md",
+    "Angular/ngContainer ngContent ngTemplate ngTemplateOutlet.md",
+    "Angular/Lifecycle Hooks.md",
     "Images/Pasted image 20240621041631.png",
     "Guide.md",
-    "Angular/Observables and RxJS.md",
-    "Angular/Route Guards.md",
-    "Angular/Change Detection.md",
-    "Angular/ngContainer ngContent ngTemplate ngTemplateOutlet.md",
     "React/Hooks.md",
     "React/Data Fetching.md",
     "TypeScript/Type vs. Interface.md",
     "TypeScript/Small Notes.md",
-    "JavaScript/Primitive Types.md",
-    "CSharp/Dependency Injection.md",
     "CSharp/CSharp for Beginners.md",
-    "CSharp/Async Await Task.md",
     "HTML CSS Tailwind/Small Notes.md",
-    "Angular/Lifecycle Hooks.md",
     "Angular/Docs Summary (angular.io)/Standalone components.md",
     "Angular/Docs Summary (angular.io).md",
     "Angular/Docs Summary (angular.io)",
@@ -215,10 +217,7 @@
     "Other/SOLID.md",
     "Other/OOP.md",
     "React/React Hook Form + Zod.md",
-    "React/Optimization.md",
-    "JavaScript/Small Notes.md",
     "Pasted image 20240112195704.png",
-    "Pasted image 20240112195543.png",
-    "Pasted image 20231120152643.png"
+    "Pasted image 20240112195543.png"
   ]
 }

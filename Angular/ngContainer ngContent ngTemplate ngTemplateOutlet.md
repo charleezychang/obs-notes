@@ -7,7 +7,7 @@ https://www.youtube.com/watch?v=Sd9aAVL3Uk8&t=1s
 ```html
 <div *ngIf="article; else loading">{{ article.title }}</div>
 
-<ng-template>
+<ng-template #loading>
 	<div>Loading...</div>
 </ng-template>
 
