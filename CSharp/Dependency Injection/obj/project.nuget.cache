@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nyEhVnSg5remw3x3GhEmAqNPgj0FFwqM/0ZnPvGX38As6hY5XMJjDt48uPEzTTkZTtXlXuXriTg2gC7SSZz2Wg==",
+  "dgSpecHash": "KTOjja/+gCE=",
   "success": true,
   "projectFilePath": "C:\\Users\\Charles\\Desktop\\obs-notes\\CSharp\\Dependency Injection\\Dependency Injection.csproj",
   "expectedPackageFiles": [
@@ -12,5 +12,12 @@
     "C:\\Users\\Charles\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "C:\\Users\\Charles\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://tfs.assistrx.com/tfs/DefaultCollection/_packaging/AssistRx/nuget/v3/index.json."
+    }
+  ]
 }

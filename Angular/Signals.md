@@ -145,8 +145,7 @@ constructor() {
 ### `toSignal()`
 - Converts observable to a signal
 - Might initially be `undefined`, workaround is to add initial value as an option: `{ initialValue: initialValue }`
-- Will behave as if its marked with `| async`
-- Note: signals mark the component as dirty, but not the ancestors. However, even if the parent is not marked as dirty, the CD will go pass through it and go through its children
+- Will behave as if its marked with `| async`, so un-subscription is not needed
 - Opposite is to use `toObservable(this.mySignal())`
 ```ts
 prettyDate = toSignal(
