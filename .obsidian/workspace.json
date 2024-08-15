@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Angular/Observables and RxJS.md",
+                "file": "Angular/Signals.md",
                 "mode": "source",
                 "source": false
               }
@@ -110,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Angular/Observables and RxJS.md",
+                "file": "Angular/Signals.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Angular/Observables and RxJS.md",
+                "file": "Angular/Signals.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Angular/Observables and RxJS.md"
+                "file": "Angular/Signals.md"
               }
             }
           },
@@ -185,21 +185,28 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "0bc408a91c91ee1b",
+  "active": "2992ec5c5bd1a663",
   "lastOpenFiles": [
-    "CSharp/Dependency Injection/obj/933ef164-568c-43fa-9aeb-840f9aadc222.tmp",
-    "Angular/Components.md",
-    "Angular/Change Detection.md",
-    "Angular/Lifecycle.md",
-    "Angular/Misc. (things that are new to me that I stumble upon).md",
-    "React/Small Notes.md",
-    "Angular/ngContainer ngContent ngTemplate ngTemplateOutlet.md",
-    "Angular/Responsiveness in Component.md",
-    "Angular/Docs Summary (angular.io)/Standalone components.md",
-    "Angular/Observables and RxJS.md",
     "Angular/Route Guards.md",
+    "Angular/Observables and RxJS.md",
+    "Angular/ngContainer ngContent ngTemplate ngTemplateOutlet.md",
+    "Angular/Misc. (things that are new to me that I stumble upon).md",
+    "Angular/Forms.md",
+    "Angular/Components.md",
+    "Angular/Docs Summary (angular.io)/Standalone components.md",
+    "Angular/Docs Summary (angular.io)/Untitled.md",
+    "Angular/Change Detection.md",
     "Angular/Signals.md",
     "Angular/Signals vs.and RxJS.md",
+    "Angular/Template.md",
+    "Angular/Forms",
+    "Angular/Lifecycle.md",
+    "Images/Pasted image 20240812234140.png",
+    "Images/Pasted image 20240812234117.png",
+    "Images/Pasted image 20240812234056.png",
+    "CSharp/Dependency Injection/obj/933ef164-568c-43fa-9aeb-840f9aadc222.tmp",
+    "React/Small Notes.md",
+    "Angular/Responsiveness in Component.md",
     "JavaScript/Primitive Types.md",
     "JavaScript/Small Notes.md",
     "CSharp/Async Await Task.md",
@@ -212,26 +219,19 @@
     "TypeScript/Small Notes.md",
     "CSharp/CSharp for Beginners.md",
     "HTML CSS Tailwind/Small Notes.md",
-    "Angular/Docs Summary (angular.io).md",
     "Angular/Docs Summary (angular.io)",
     "Angular/RxJS",
     "Angular",
-    "Resources.md",
     "CSharp/Dependency Injection/Services/NumbersTwoServices .cs",
     "CSharp/Dependency Injection/Services/NumbersOneServices copy.cs",
     "CSharp/Dependency Injection/Services copy/NumbersTransientServices.cs",
     "CSharp/Dependency Injection/Services copy/NumbersSingletonServices.cs",
     "CSharp/Dependency Injection/Services copy/INumbersTransientServices.cs",
-    "CSharp/Dependency Injection/Services copy/NumbersOneServices.cs",
-    "CSharp/Dependency Injection/Services copy/INumbersSingletonServices.cs",
     "Images/Pasted image 20240326161148.png",
     "Images/Pasted image 20240326161052.png",
     "Images/Pasted image 20240326161026.png",
     "Images/Pasted image 20240112195720.png",
     "Images/9.jpg",
-    "Images/11.jpg",
-    "Images/8.jpg",
-    "Pasted image 20240112195704.png",
-    "Pasted image 20240112195543.png"
+    "Images/11.jpg"
   ]
 }

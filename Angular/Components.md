@@ -19,17 +19,18 @@ function trimString(value: string | undefined) {
 	return value?.trim() ?? '';
 }
 ```
-#### Built-in transform functions
+
+Built-in transform functions
 1. `booleanAttribute` - presence of value indicates `true`, treats literal string `"false"` as `false`
 2. `numberAttribute` - parse given value, returns `NaN` if fails
-#### Input Aliases (avoid)
+#### Input and Output Aliases (avoid)
 ```ts
 @Component({...})
 export class CustomSlider {
 	@Input({alias: 'sliderValue'}) value = 0;
 }
 ```
-#### Output Aliases (avoid)
+
 ```ts
 @Component({...})
 export class CustomSlider {
@@ -164,7 +165,7 @@ export class ProfilePhoto { /* ... */ }
 - If both values are static, the instance binding wins.
 - If one value is static and the other dynamic, the dynamic value wins.
 - If both values are dynamic, the component's host binding wins.
-#### Lifecycle
+#### Lifecycle hooks
 
 | Phase            | Method                  | Run Time                                            |
 | ---------------- | ----------------------- | --------------------------------------------------- |
@@ -187,13 +188,98 @@ export class ProfilePhoto { /* ... */ }
 - update state/properties of component that are based on input values (since these are not yet instantiated in the constructor)
 `ngOnChanges`
 - happens before own template is checked
-- the first `ngOnChanges` happens before `ngOnInit`
-- succeeding triggers happen when any input that is used in the template is changed
-- accepts `SimpleChanges` argument, a mapping of each input to a `SimpleChange` object which contains the input's previous value, current value, and a flag whether this is the first time the input has changes
+- the first `ngOnChanges` happens before `ngOnInit`, `firstChange` property will be true
+- succeeding triggers happen when any input that is used in the template is changed, `firstChange` property will be false
+- accepts `SimpleChanges` argument, a mapping of each input to a `SimpleChange` object which contains the input's previous value, current value, and a flag (`firstChange`) whether this is the first time the input has changes
+- note that for cycles other than the first and for component multiple inputs, the parameter of type `SimpleChanges` will only contain the inputs that have changed
+- objects and arrays are compared by reference so mutating the these does not re-trigger this hook
 `ngDoCheck`
 - happens before checking of template for changes, after `ngOnInit`
 - triggered when change detection runs
 - use this hook to manually check for state changes outside of normal change detection
 - runs very frequently and can affect performance, avoid as possible
+`ngAfterContentInit`
+- happens after all children nested inside the component (content via `ng-content) have been initialized
+- read results of content queries here
+- point where you should avoid changing any state
+- subsequent updates will be via `ngAfterContentChecked`
+`ngAfterViewInit`
+- happens after all children in the template/view have been initialized
+- read results of view queries here
+- point where you should avoid changing any state
+ - subsequent updates will be via `ngAfterContentChecked`
 `ngOnDestroy`
 - happens when component is no longer shown on the page (i.e. hidden by `*ngIf` or navigation)
+
+![[Pasted image 20240812234140.png]]
+
+#### TODO: Referencing component children (queries)
+
+#### TODO: DOM APIs
+#### Inheritance
+```ts
+@Component({
+  selector: 'base-listbox',
+  template: `
+    ...
+  `,
+  host: {
+    '(keydown)': 'handleKey($event)',
+  },
+})
+export class ListboxBase {
+  @Input() value: string;
+  handleKey(event: KeyboardEvent) {
+    /* ... */
+  }
+}
+@Component({
+  selector: 'custom-listbox',
+  template: `
+    ...
+  `,
+  host: {
+    '(click)': 'focusActiveOption()',
+  },
+})
+export class CustomListbox extends ListboxBase {
+  @Input() disabled = false;
+  focusActiveOption() {
+    /* ... */
+  }
+}
+```
+
+`CustomListbox` inherits all the information associated with `ListboxBase`, overriding the selector and template with its own values. `CustomListbox` has two inputs (`value` and `disabled`) and two event listeners (`keydown` and `click`).
+
+If a base class relies on dependency injection, the child class must explicitly pass these dependencies to `super`.
+```ts
+@Component({ ... })
+export class ListboxBase {
+  constructor(private element: ElementRef) { }
+}
+@Component({ ... })
+export class CustomListbox extends ListboxBase {
+  constructor(element: ElementRef) {
+    super(element);
+  }
+}
+```
+
+If a base class defines a lifecycle method, such as `ngOnInit`, a child class that also implements `ngOnInit` _overrides_ the base class's implementation. If you want to preserve the base class's lifecycle method, explicitly call the method with `super`:
+```ts
+@Component({ ... })
+export class ListboxBase {
+  protected isInitialized = false;
+  ngOnInit() {
+    this.isInitialized = true;
+  }
+}
+@Component({ ... })
+export class CustomListbox extends ListboxBase {
+  override ngOnInit() {
+    super.ngOnInit();
+    /* ... */
+  }
+}
+```
