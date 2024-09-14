@@ -1,0 +1,9 @@
+POST http://localhost:5001/products
+Authorization: None
+Content-Type: application/json
+
+{
+	"Name": "Max book",
+    "Category": "Books",
+    "SubCategory": "Science"
+}

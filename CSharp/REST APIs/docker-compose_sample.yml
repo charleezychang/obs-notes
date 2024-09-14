@@ -1,0 +1,44 @@
+# docker compose allows you to define and run multi-container Docker applications
+# tab indent sensitive
+version: "3.9"
+
+services: # services here are 'webapp' and 'db'
+  # asp.net webapp
+  webapp:
+    container_name: olympia
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    # maps the host port to the container port
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Database=olympia;Username=postgres;Password=password
+    depends_on:
+      - db
+  #postgres db
+  db:
+    container_name: olympia-db
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: olympia
+    volumes:
+        - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+volumes:
+  db_data:
+
+  # docker-compose down
+  # docker-compose up
+
+  # docker compose up --build

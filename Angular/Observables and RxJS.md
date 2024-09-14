@@ -43,7 +43,12 @@
 ![[Pasted image 20240621041631.png]]
 
 [How to share your RxJS observables for improved performance (youtube.com)](https://www.youtube.com/watch?v=H542ZSyubrE)
+Scenario: multiple calls on a function that fetches data and returns an observable, each observer will execute this fetch and therefore expensive
+Workaround: save the observable in a variable and use: 
 `share() vs shareReplay(1)`
+- `.pipe(share())`
+- method to transform a cold observable into a hot observable
 - `share()` - uses `Subject` under the hood, so if a new subscription is called after emission of data, it will not be able to receive the initial data
-- `shareReplay(1)` - uses `ReplaySubject` under the hood, parameter is the number of emissions we want to emit prior to subscription (essentially like `BehaviorSubject` if 1)
+- `shareReplay(1)` - uses `ReplaySubject` under the hood, parameter (`bufferSize`) is the number of emissions we want to emit prior to subscription (essentially like `BehaviorSubject` if 1)
 - `shareReplay({ bufferSize: 1, refCount: true })` - unsubscribe to source observable if there are no more subscribers (cold), will subscribe again if there a new subscribers (hot again)
+- Update: it is recommended to use `share({connector: new ReplaySubject(1)})` that behaves similar to `shareReplay({ bufferSize: 1, refCount: true })` as the latter will likely be deprecated like other multicasting operators

@@ -1,11 +1,41 @@
-#### Required Inputs
+- Decorator: @Component
+- Anatomy (a.k.a component metadata)
+	- TypeScript class with behaviors to handle user input and data fetching
+	- template / templateUrl: HTML Template 
+	- selector: CSS Selector that defined how the component is used in HTML, case-sensitive, never use `ng-` prefix
+	- styles / styleUrl
+	- standalone
+	- encapsulation
+	- inputs: accepts array of record input name and its alias (optional)
+	- outputs: accepts array of record output name and its alias (optional)
+	- host
+	- changeDetection
+	- preserveWhitespace
+	- schemas
+- Host element - element that houses or utilizes the component via its selector
+- View - DOM rendered by the component
+#### Style Scoping
+1. ViewEncapsulation.Emulated
+	- default, generates unique HTML attribute to be added in the elements in the template and CSS selectors
+	- prevents leaking of styling to other components but still allow global styles to affect the component
+	- supports `:host` and `::ng-deep` (turns into global styles, discouraged) 
+2. ViewEncapsulation.ShadowDom
+	- uses Shadow DOM API 
+	- attaches shadow root to the component's host which guarantees only the component's styles apply to the elements of the template
+3. ViewEncapsulation.None
+	- behave like global style
+#### Inputs and Outputs
+- when extending a component class, inputs and outputs are inherited by the child class
+- case-sensitive
+##### Required Inputs
 ```ts
 @Component({...})
 export class CustomSlider {
 	@Input({required: true}) value = 0;
 }
 ```
-#### Transform Inputs
+##### Transform Inputs
+- pure function, must not rely on state outside of the transform function
 ```ts
 @Component({
   selector: 'custom-slider',
@@ -23,23 +53,31 @@ function trimString(value: string | undefined) {
 Built-in transform functions
 1. `booleanAttribute` - presence of value indicates `true`, treats literal string `"false"` as `false`
 2. `numberAttribute` - parse given value, returns `NaN` if fails
-#### Input and Output Aliases (avoid)
+##### Input and Output Aliases (avoid)
 ```ts
 @Component({...})
 export class CustomSlider {
+	// used like so: <custom-slider [sliderValue]="50" />
 	@Input({alias: 'sliderValue'}) value = 0;
+	// decorator accepts alias as default parameter
+	@Input('sliderValue') value = 0
 }
 ```
 
 ```ts
 @Component({...})
 export class CustomSlider {
+  // template: <custom-slider (changed)="consumeEmitted($event)"
   @Output('valueChanged') changed = new EventEmitter<number>();
+
+  emitToParentComponent(): {
+	  changed.emit(10)
+  }
 }
 ```
 #### Content projection & aliasing (`ngProjectAs`)
 ```html
-<!-- Component template -->
+<!-- Component template, selector: 'custom-card' -->
 <div class="card-shadow">
   <ng-content select="card-title"></ng-content>
   <div class="card-divider"></div>
@@ -83,6 +121,10 @@ If a component does not include an `<ng-content>` placeholder without a `sele
   template: `
 	<img src="profile-photo.jpg" alt="Your profile photo" />
   `,
+  host: {
+     'role': 'presentation',
+     '[id]': 'id'
+  }
 })
 export class ProfilePhoto {}
 ```
@@ -90,14 +132,14 @@ export class ProfilePhoto {}
 ```html
 <!-- Using the component -->
 <h3>Your profile photo</h3>
-<profile-photo />
+<profile-photo role="group" [id]="otherId" />
 <button>Upload a new profile photo</button>
 ```
 
 ```html
 <!-- Rendered DOM -->
 <h3>Your profile photo</h3>
-<profile-photo>
+<profile-photo role="group" [id]="otherId">
   <img src="profile-photo.jpg" alt="Your profile photo" />
 </profile-photo>
 <button>Upload a new profile photo</button>
@@ -213,8 +255,88 @@ export class ProfilePhoto { /* ... */ }
 
 ![[Pasted image 20240812234140.png]]
 
-#### TODO: Referencing component children (queries)
+#### Referencing component children (queries)
+- used to retrieve references to child components, directives, DOM elements
+- if target element is hidden by `ngIf`, value is `undefined`
+- query results become available in the `ngAfterViewInit` lifecycle, before this, value is `undefined`
+- if `@ViewChild` is used to a component that appears multiple times in the template, will only reference the first instance of that component
+- `@ViewChild` and `@ContentChild` accept `static` option as a second parameter, by setting this to `true`, you guarantee that the target of this query is ALWAYS present and is not conditionally rendered making it available earlier specifically in the `ngOnInit` lifecycle (not available for `@ViewChildren` and `@ContentChildren`)
+- content queries find only _direct_ children of the component and do not traverse into descendants.
+```ts
+@Component({
+  selector: 'custom-card-header',
+  ...
+})
+export class CustomCardHeader {
+  text: string;
+}
+@Component({
+  selector: 'custom-card',
+  template: `
+	  <custom-card-header>Visit sunny California!</custom-card-header>
+	  <custom-card-action>Save</custom-card-action>
+	  <custom-card-action>Cancel</custom-card-action>
+  `,
+})
+export class CustomCard {
+  @ViewChild(CustomCardHeader, {static: true}) header: CustomCardHeader;
+  @ViewChildren(CustomCardAction) actions: QueryList<CustomCardAction>;
 
+  ngOnInit() {
+     console.log(this.header.text);
+  }
+  
+  ngAfterViewInit() {
+    this.actions.forEach(action => {
+	    console.log(action.text)
+    })
+  }
+}
+```
+
+```ts
+@Component({
+  selector: 'custom-toggle',
+  ...
+})
+export class CustomToggle {
+  text: string;
+}
+@Component({
+  selector: 'custom-expando',
+  ...
+})
+export class CustomExpando {
+  @ContentChild(CustomToggle) toggle: CustomToggle;
+  ngAfterContentInit() {
+    console.log(this.toggle.text);
+  }
+}
+@Component({
+  selector: 'user-profile',
+  template: `
+    <custom-expando>
+      <custom-toggle>Show</custom-toggle>
+    </custom-expando>
+  `
+})
+export class UserProfile { }
+```
+
+Query Locators
+- If more than one element defines the same template reference variable, the query retrieves the first matching element.
+```ts
+@Component({
+  ...,
+  template: `
+    <button #save>Save</button>
+    <button #cancel>Cancel</button>
+  `
+})
+export class ActionBar {
+  @ViewChild('save') saveButton: ElementRef<HTMLButtonElement>;
+}
+```
 #### TODO: DOM APIs
 #### Inheritance
 ```ts

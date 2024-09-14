@@ -1,0 +1,36 @@
+# Stage 1: Build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+
+# set working directory, creates if not exists
+WORKDIR /src
+
+# restore - run when csproj/packages changes
+COPY ["src/Olympia/Olympia.csproj", "Olympia/"]
+RUN dotnet restore "Olympia/Olympia.csproj"
+
+# build - run whenever any file changes
+COPY ["src/Olympia", "Olympia/"]
+WORKDIR /src/Olympia
+# -c Release means configuration is Release (other option is Debug), -o /app/build means output to /app/build
+RUN dotnet build "Olympia.csproj" -c Release -o /app/build
+
+# Stage 2: Publish
+# all codes before this stage are part of the build image
+# Starts the publish stage, using the build stage as its base.
+FROM build AS publish
+RUN dotnet publish "Olympia.csproj" -c Release -o /app/publish
+
+# Stage 3: Run
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+# dotnet 8 listens for this variable
+ENV ASPNETCORE_HTTP_PORTS=5000
+# doesnt actually expose the port, just a metadata(documentation)
+EXPOSE 5000
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT [ "dotnet", "Olympia.dll" ]
+
+# docker build -t olympia .
+# docker run -p 5000:5000 --name olympia olympia
+# docker run -d -p 5000:5000 --name olympia olympia
+# -d stands for detached mode (run in background)

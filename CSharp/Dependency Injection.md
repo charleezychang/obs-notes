@@ -1,6 +1,6 @@
 [Dependency injection fundamentals in C# - DI vs IoC vs DIP - YouTube](https://www.youtube.com/watch?v=M1jxLQu40qo)
 #### Dependency Inversion Principle
-- gigher ordered components should not depend on lower ordered components but instead rely on abstractions
+- higher ordered components should not depend on lower ordered components but instead rely on abstractions
 - better testability
 
 ```c#
@@ -24,6 +24,10 @@ class GithubClient
 	}
 }
 ```
+GithubService -> GithubClient -> External Github
+Larger module -> Smaller module -> External Github
+
+Larger module (because services usually call many smaller modules) is dependent on the smaller module
 #### Inversion of Control
 - give control/responsibility to some container or framework
 - providing _any kind_ of `callback`, which "implements" and/or controls reaction, instead of acting ourselves directly (in other words, inversion and/or redirecting control to the external handler/controller).
@@ -49,6 +53,7 @@ class GithubClient
 
 ```c#
 // ctor injection
+// Directly access the dependency
 class GithubService(IGithubClient githubClient)
 {
 	private IGithubClient _githubClient = githubClient;
@@ -63,7 +68,29 @@ class interface IGithubClient
 {
 	public (string repoName, int Stars) GetRepo(string repoName)
 }
+
+// setter injection
+// almost same as interface injection where the Interface implements the setter 
+class GithubService
+{
+	private IGithubClient = _githubClient;
+	
+	public void SetGithubClient(IGithubClient githubClient)
+	{
+		_githubClient = githubClient;
+	}
+	public int GetStars(string repoName)
+	{
+		return _githubClient.GetRepo(repoName).Stars;
+	}
+}
+
+class interface IGithubClient
+{
+	public (string repoName, int Stars) GetRepo(string repoName)
+}
 ```
+GithubService => IGithubClient => GithubClient -> External Github (DIP)
 
 Instead of managing the dependency injections ourselves (ctor injection):
 ```c#
@@ -83,6 +110,8 @@ serviceCollection.AddTransient<GithubService>;
 // This now controls the creation of the injections
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
+// Since in the GithubService, GithubClient is declared as a dependency
+// The container will already implement the injection based on the mapping above
 GithubService githubService = serviceProvider.GetRequiredService<GithubService>();
 
 githubService.GetStars("repoName");

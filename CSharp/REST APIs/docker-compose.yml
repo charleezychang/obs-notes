@@ -1,0 +1,33 @@
+version: '3.4'
+
+services:
+  olympia:
+    image: ${DOCKER_REGISTRY-}olympia
+    build:
+      context: .
+      dockerfile: src\Olympia\Dockerfile
+    ports:
+        - "5000:5000"
+        - "5001:5001"
+    environment:
+        - ConnectionStrings__DefaultConnection=Host=db;Database=olympia;Username=postgres;Password=password
+
+  db:
+    container_name: olympia-db
+    image: postgres:latest
+    ports:
+        - "5432:5432"
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: olympia
+    volumes:
+        - db_data:/var/lib/postgresql/data
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U postgres"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+
+volumes:
+  db_data:
