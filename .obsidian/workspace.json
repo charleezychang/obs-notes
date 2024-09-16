@@ -13,19 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Angular/Templates.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "c153ea5fc457b7c9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Angular/Signals.md",
+                "file": "Angular/Observables and RxJS.md",
                 "mode": "source",
                 "source": false
               }
@@ -60,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "promise",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -97,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Angular/Templates.md",
+                "file": "Angular/Observables and RxJS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Angular/Templates.md",
+                "file": "Angular/Observables and RxJS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Angular/Templates.md"
+                "file": "Angular/Observables and RxJS.md"
               }
             }
           },
@@ -174,24 +162,28 @@
   },
   "active": "854a2d6b06e3cb97",
   "lastOpenFiles": [
-    "Angular/Routing.md",
-    "Angular/Observables and RxJS.md",
-    "Angular/Misc..md",
     "Angular/Interview.md",
-    "Angular/Forms.md",
-    "Angular/HTTP Client.md",
-    "Angular/Dependency Injection.md",
     "Angular/Templates.md",
     "Angular/Signals.md",
+    "Angular/Observables and RxJS.md",
     "Angular/Directives.md",
     "Angular/Components.md",
+    "Angular/Dependency Injection.md",
     "TypeScript/Small Notes.md",
+    "Angular/Routing.md",
+    "Angular/Misc..md",
+    "TypeScript/Type vs. Interface.md",
+    "Angular/HTTP Client.md",
+    "Angular/Forms.md",
+    "Other/OWASP Top 10.md",
+    "Angular/Change Detection.md",
+    "Angular/CLI.md",
+    "Other/OOP.md",
     "Other/SOLID.md",
+    "CSharp/Dependency Injection/obj/13d6a12f-3c97-42d0-8e9f-72fd8692e8fe.tmp",
     "Other/VSCode.md",
     "JavaScript/Small Notes.md",
     "JavaScript/Primitive Types.md",
-    "Angular/Change Detection.md",
-    "Angular/CLI.md",
     "Angular/Untitled",
     "Untitled",
     "Angular/Docs Summary (angular.io)/Standalone components.md",
@@ -204,12 +196,8 @@
     "CSharp/REST APIs/obj/Docker/MergedDockerCompose.cache",
     "CSharp/REST APIs/obj/Docker/DOCKER_REGISTRY.cache",
     "CSharp/REST APIs/obj/Docker",
-    "CSharp/REST APIs/obj",
     "Other/Docker.md",
     "CSharp/Dependency Injection.md",
-    "CSharp/Async Await Task.md",
-    "CSharp/CSharp for Beginners.md",
-    "Angular/Docs Summary (angular.io)/Untitled.md",
     "Images/Pasted image 20240812234140.png",
     "Images/Pasted image 20240812234117.png",
     "Images/Pasted image 20240812234056.png",

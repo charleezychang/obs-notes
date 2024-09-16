@@ -223,3 +223,13 @@ export class PageComponent {
 	page = input.required<{ pageId: stirng; name: string }();
 }
 ```
+
+#### Lazy loading
+```ts
+const routes: Routes = [
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.module').then(m => m.ItemsModule)
+  }
+];
+```

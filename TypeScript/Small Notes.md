@@ -127,7 +127,8 @@ type Props = Male | Female
 ```
 
 ### Generics
-In some cases, a function can received any type and return the same type, instead of using *any*, you can use generics
+- In some cases, a function can received any type and return the same type, instead of using *any*, you can use generics
+- Essentially, generics play like a type placeholder which can so you can reuse certain functionality that can be applied to many data types
 ```tsx
 // Problem: 
 function convertToArray(input: string | number | someObject): string[] | number[] | someObject[] {

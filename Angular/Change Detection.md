@@ -1,6 +1,7 @@
 [Change Detection in Angular - You Project Is 20x Slower! (youtube.com)](https://www.youtube.com/watch?v=-tB-QDrPmuI)
-Angular change detection is synchronous
-Checks twice in development mode - angular makes sure nothing changes (if there are changes, error: `ExpressionChangedAfterItHasBeenCheckedError`). This error doesn't appear in production since the check only happens once.
+- method in which the framework checks the state of the application and apply necessary changes to the DOM
+- Angular change detection is synchronous
+- Checks twice in development mode - angular makes sure nothing changes (if there are changes, error: `ExpressionChangedAfterItHasBeenCheckedError`). This error doesn't appear in production since the check only happens once.
 
 Triggers CD cycle for the whole component tree (except those with `OnPush`) automatically
 1. User interactions: clicks, input changes

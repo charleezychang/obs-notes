@@ -48,3 +48,41 @@ Is it good to call a method in a template?
 Why is better to use http client instead of fetch?
 - fetch is not monkey patched by Zone.js, omits observable, can attach headers
 Optimization
+
+https://www.youtube.com/watch?v=X-ptPktRzA0&list=PLoC8Q0moRTSjG53-besrUtWXeDpmkZRjL
+String Interpolation vs. Property Binding
+- former always transform into a string, so false will be "false", so functionality that depend on this boolean might not work properly
+- careful in using `innerHTML` since user can inject html codes
+Observable vs Promise
+- Observable is not executed until subscribed to
+- Observable can emit multiple values via next()
+- Observable can be cancelled via unsubscribe()
+- Observable support RxJS
+
+https://www.youtube.com/watch?v=5A_YKlVWMPo
+Define array of numbers and strings
+- `let values: (string | number)[]`
+What is type assertion
+- forcing a type on a variable by using `as`
+What is a void type
+- commonly used when a function doesn't return anything
+What is unknown
+- should be used instead of `any` (will ignore type), maybe u call foo() but it doesnt have it
+- forces you to check the type or type assertion
+How to instantiate an object
+- ` const newContent = <Content>({})`
+Providing a default value in a function parameter
+- `function something(isActive: boolean = true) {}` , TS will treat isActive as optional
+What is tsconfig.json and what does this options do?
+- configure TS compiler `compilerOptions, what ECMA version etc
+What is elvis operator?
+- basically null check `.?`, immediately stop running expressions when run into a null or undefined
+
+https://www.youtube.com/watch?v=nS2_VVICnxo
+Lazy loadiung
+- allow you to load module or components on demand rather than all at once at startup to reduce initial load time
+- 
+[Angular Experienced Interview questions and answers | angular interview questions @UiDevGuideClips (youtube.com)](https://www.youtube.com/watch?v=8H_UgBCaEuA)
+What are dumb components and smart components?
+
+During constructor, inputs are undefined

@@ -1,3 +1,4 @@
+- building blocks of the framework which usually house a class file, template, and a stylesheet
 - Decorator: @Component
 - Anatomy (a.k.a component metadata)
 	- TypeScript class with behaviors to handle user input and data fetching
@@ -6,6 +7,7 @@
 	- styles / styleUrl
 	- standalone
 	- encapsulation
+	- providers
 	- inputs: accepts array of record input name and its alias (optional)
 	- outputs: accepts array of record output name and its alias (optional)
 	- host
@@ -21,7 +23,7 @@
 	- supports `:host` and `::ng-deep` (turns into global styles, discouraged) 
 2. ViewEncapsulation.ShadowDom
 	- uses Shadow DOM API 
-	- attaches shadow root to the component's host which guarantees only the component's styles apply to the elements of the template
+	- attaches shadow root to the component's host which guarantees only the component's styles apply to the elements of the template, global styles cannot penetrate this scope
 3. ViewEncapsulation.None
 	- behave like global style
 #### Inputs and Outputs

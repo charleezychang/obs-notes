@@ -131,7 +131,7 @@ export class CounterComponent {
 - passing parameters to pipes: `{{ schedule | date:'hh:mm':'UTC' }}`
 - binary operators are grouped/concatenated together before pipe is applied
 - ternary operators are not concatenated together therefore must use grouping via parenthesis if pipe is desired to apply to the result of the operator
-- pure pipes offer a performance advantage because Angular can avoid calling the transformation function if the passed value has not changed
+- pure pipes, which only detects primitive type changes or object reference, offer a performance advantage because Angular can avoid calling the transformation function if the passed value has not changed
 ##### Built-in Pipes
 - AsyncPipe, CurrencyPipe, DatePipe, DecimalPipe, JsonPipe, KeyValuePipe, LowerCasePipe, UpperCasePipe, PercentPipe, SlicePipe, TitleCasePipe
 - most of these pipes transform into a format according to locale rules
