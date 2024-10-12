@@ -36,7 +36,7 @@ ng-deep
 - override css (global), breaking the convention that styles should be encapsulated
 - use with :host to encapsulate within the component and down to children
 Why shouldn't we use ApplicationRef.tick() to run CD cycle?
-- it re-renders/run the cycle to the whole component tree
+- it re-renders/run the cycle to the whole component tree (still respects OnPush)
 Lazy loading
 - way to split up bundles and optimize initial loading time and only load necessary ones
 Dependency Injection
@@ -86,3 +86,6 @@ Lazy loadiung
 What are dumb components and smart components?
 
 During constructor, inputs are undefined
+
+
+[Angular Experienced Interview questions and answers | angular interview questions @uidevguide - YouTube](https://www.youtube.com/watch?v=0kZNTVHSXIw)

@@ -27,6 +27,7 @@ alert(String(value)); // null
 ### || vs ?? 
 **Logical OR operator uses the right side value if the left side one is falsy**
 Undefined or null does not mean false
+Nullish coalescing operator (??) returns right side if the left side is undefined or null
 ```tsx
 console.log(true || "shameel"); // true
 console.log(false || "shameel"); // "shameel"

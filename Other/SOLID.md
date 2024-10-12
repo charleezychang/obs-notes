@@ -7,10 +7,11 @@ O - Open Closed Principle
 > Dependency Injection
 
 L - Liskov Substitution
-> Child class should do everything that a parent class could do
+> Child class should do everything that a parent class could do, so if child class is used instead of parent class, application should still be working
 > i.e. If parent class has work() method, child class doesn't, consider making them both inherit from a human class that doesn't implement work() method
 
 I - Interface Segregation
+> A class should not be forced to implement interfaces it does not use
 > Bulky interface breaks Liskov, consider breaking them down into smaller ones and use a main interface that inherits the smaller interfaces
 
 D - Dependency Inversion

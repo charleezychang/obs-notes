@@ -4,7 +4,6 @@
 2. filter - return observable if condition is true, can take out observables
 3. tap - doesnt actually do anything. used for quick debugging within the stream or create a side effect
 	- tap vs subscribe - tap is used within the class of the observable, otherwise subscribe if observable is accessed on another class
-4. startWith - allow to start the stream with a specific value (basically append at the first index). useful together with valueChanges (since this only emits on change, so if you want an initial default value, this operator is the key)
 5. debounceTime - allows to wait in milliseconds to emit the next value (everything in the waiting period is lost!)
 6. distinctUntilChanged - emit value only if its changed, prevent duplicate values delivered consequently
 7. distinct - emit value that has not been emitted before
@@ -13,15 +12,20 @@
 10. takeLast - dictates how many values should be taken from the stream counting starting from the latest emitted value
 11. skip - dictates how many values should be skipped from the stream
 12. skipLast - dictates how many values should be skipped from the stream counting starting from the latest emitted value
-
+#### Observables Creation
+- `from` - will emit and iterate through the items of an array
+- `of` - will emit the whole array, but can act like `from` if the array is passed with spread operator
+- `interval` - emits every given time period, first emission is after the time period
+- `timer` - takes time to emit first emission as first parameter, and then interval time to emit succeeding emissions as second parameter
 #### Combining observables
 - `concat` - combine streams WRT to the order of streams, `of(1, 2, 3)` + `of(4, 5, 6)` = `of(1, 2, 3, 4, 5, 6)`
 - `merge` - combine streams WRT to the order of emitted values ,`of(1, 2, 3)` + `of(4, 5, 6)` = `of(1, 4, 3, 2, 5, 6)`
 - `combineLatest` - get latest values of multiple observables, each of which must emit one value before the operator emits the INITIAL value (tuple), after which it will emit every time a new value is emitted in any of the streams
 - `withLatestFrom` - similar to `combineLatest` which requires all streams to at least emit one value for the first emission, but one stream is assigned as primary stream, and then succeeding emissions of the operator will be emitted based on the primary stream emission only
-- `zip` - similar to `combineLatest`, but all emissions require all streams to emit one value
+- `zip` - similar to `combineLatest`, but all emissions require all streams to emit one value before the operator emits an output
+- `forkJoin` - similar to `zip`, but will only emit once all streams are completed (different from emission in which the former's streams are closed), meaning it only outputs once
 - `race` - filters only the stream that first emitted a value, other streams are ignored
-- `startWith` - emits an assigned initial value before emitting the rest 
+- `startWith` - emits an assigned initial value before emitting the rest, useful together with `valueChanges`
 #### Dealing with higher ordered observables 
 - when an value of an observable is used as a parameter in function that emits another observable, the return type is `Observable<Observable<T>>` (can possibly chain more inner observables) and will require a subscription chain `.subscribe(() => .subscribe())`
 - this can be simplified by flattening each observable (essentially like subscribing) before they are consumed via: `concatMap`, `mergeMap`, `switchMap`, `exhaustMap`
