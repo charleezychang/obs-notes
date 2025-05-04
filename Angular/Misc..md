@@ -11,39 +11,6 @@ onResize() {
 	}
 }
 ```
-#### Circumventing `[innerHTML]` security risks (`DomSanitizer`)
-- By default, angular escapes any text that are passed into the template due to the its built-in code injection defenses, also known as XSS defenses or Cross-Site Scripting defenses
-- Framework provides a service (`DomSanitizer` from `@angular/platform-browser`) to bypass security checks for trusted values which exposes sanitation methods:
-	- `bypassSecurityTrustHtml` - html
-	- `bypassSecurityTrustStyle` - styles
-	- `bypassSecurityTrustScript` - scripts
-	- `bypassSecurityTrustUrl` - URL
-	- `bypassSecurityTrustResourceUrl` - iframe sources
-- Can implement a pipe to conveniently apply sanitation
-```ts
-@Pipe({
-  name: "safeHtml",
-  standalone: true,
-})
-export class SafeHtmlPipe {
-  constructor(private sanitizer: DomSanitizer) {}
-
-  transform(html) {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-}
-```
-
-```ts
-@Component({
-  standalone: true,
-  imports: [SafeHtmlPipe],
-  template: ` 
-  <div [innerHTML]="someHtmlContent | safeHtml">
-  </div> `,
-})
-export class TestComponent {}
-```
 
 #### `APP_INITIALIZER`
 - delay angular application bootstrap process until some asynchronous task are completed
@@ -99,5 +66,3 @@ export class ConfigService {
   }
 }
 ```
-
-#### NgModules

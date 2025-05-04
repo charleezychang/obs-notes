@@ -122,7 +122,7 @@ Another example [How Did I Not Know This TypeScript Trick Earlier??! - YouTube](
 ```tsx
 type Person = { name: string } 
 type Male = Person & { gender: 'male' salary: number }
-type Female = Person & { gender: 'male' weight: number } 
+type Female = Person & { gender: 'female' weight: number } 
 type Props = Male | Female
 ```
 

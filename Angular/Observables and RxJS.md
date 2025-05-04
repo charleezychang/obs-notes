@@ -12,6 +12,7 @@
 10. takeLast - dictates how many values should be taken from the stream counting starting from the latest emitted value
 11. skip - dictates how many values should be skipped from the stream
 12. skipLast - dictates how many values should be skipped from the stream counting starting from the latest emitted value
+13. iff - boolean first parameter, observable second parameter will execute if true otherwise third parameter observable will
 #### Observables Creation
 - `from` - will emit and iterate through the items of an array
 - `of` - will emit the whole array, but can act like `from` if the array is passed with spread operator
