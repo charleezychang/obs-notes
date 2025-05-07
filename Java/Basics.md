@@ -52,8 +52,6 @@ switch(day) {
 }
 ```
 
-
-
 `static` Modifier
 - class "owns" the static variable/method so it is shared by all objects that were instantiated
 - it is best to call this member not by the instantiated object, but via the class (i.e. `Friend` class with instantiated `friend1`, call `Friend.numberOfFriends`)
@@ -88,7 +86,7 @@ Car car = new Car();
 Sout(car) // prints Car@<reference> so need to use . to access properties
 ```
 - constructor - create objects by passing arguments to initialize properties
-- overloaded constructor
+- overloaded constructor, implement ctr multiple times to accommodate different parameter
 - static
 - inheritance
 - super - subclass (child), superclass (parent), used in inheritance, called in constructors, calls parent constructor to initialize attributes (like literally)
